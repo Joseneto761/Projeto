@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <p style="font-size:40px;"> Funcionarios Cadastrados </p>
+
+        <% if (salvo != undefined){ %>
+            <div style="text-align:center; background-color:green; color:white">
+                Funcionário cadastrada com sucesso!
+            </div>
+        <%}%>
+
+        <% if (atualizado != undefined){ %>
+            <div style="text-align:center; background-color:gold; color:white">
+                Dados atualizados com sucesso!
+            </div>
+        <%}%>
+
+        <% if (removido != undefined){ %>
+            <div style="text-align:center; background-color:brown; color:white">
+                Funcionário removida com sucesso!
+            </div>
+        <%}%>
+
+
+        <table class="table">
+
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            <% for(let funcionario of listaFuncionarios) {  %>
+                <tr>
+                    <td>
+                        <%= funcionario.codigo%>
+                    </td>
+                    <td>
+                        <%= funcionario.nome%>
+                    </td>
+                    <td>
+                        <%= funcionario.idade%>
+                    </td>
+                    <td>
+                        <a class="btn btn-dark" href="/funcionario/<%= funcionario.codigo %>">Detalhes</a>
+                        <a class="btn btn-warning" href="/funcionario/cadastrar/<%= funcionario.codigo %>">Atualizar</a>
+                        <a class="btn btn-danger" onclick="return confirm('Confirmar remoção?')" href="/funcionario/remover/<%= funcionario.codigo %>">Remover</a>
+                    </td>
+                </tr>
+
+            <% } %>
+
+        </table>
+
+        <div>
+            <a class="btn btn-success" href="/funcionario/cadastrar">Cadastrar</a>
+            <a class="btn btn-dark" href="/" >Voltar</a>
+        </div>
+
+    </div>
+
+</body>
+
+<foot>
+    <%- include("../partials/footer.ejs") %>
+</foot>
+
+
+</html>

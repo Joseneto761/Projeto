@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Fornecedores</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    
+</head>
+
+<body>
+    
+    <div class="container">
+
+        <p style="font-size:40px;"> Fornecedores Cadastrados </p>
+
+        <% if (salvo != undefined){ %>
+            <div style="text-align:center; background-color:green; color:white">
+                Fornecedor cadastrado com sucesso!
+            </div>
+        <%}%>
+
+        <% if (atualizado != undefined){ %>
+            <div style="text-align:center; background-color:gold; color:white">
+                Dados atualizados com sucesso!
+            </div>
+        <%}%>
+
+        <% if (removido != undefined){ %>
+            <div style="text-align:center; background-color:brown; color:white">
+                Fornecedor removida com sucesso!
+            </div>
+        <%}%>
+
+
+        <table class="table">
+
+            <tr>
+                <th>E-mail</th>
+                <th>Nome</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            <% for(let fornecedor of listaFornecedores) {  %>
+                <tr>
+                    <td>
+                        <%= fornecedor.email%>
+                    </td>
+                    <td>
+                        <%= fornecedor.nome%>
+                    </td>
+                    <td>
+                        <a class="btn btn-dark" href="/fornecedor/<%= fornecedor.email %>">Detalhes</a>
+                        <a class="btn btn-warning" href="/fornecedor/cadastrar/<%= fornecedor.email %>">Atualizar</a>
+                        <a class="btn btn-danger" onclick="return confirm('Confirmar remoção?')" href="/fornecedor/remover/<%= fornecedor.email %>">Remover</a>
+                    </td>
+                </tr>
+
+            <% } %>
+
+        </table>
+
+        <div>
+            <a class="btn btn-success" href="/fornecedor/cadastrar">Cadastrar</a>
+            <a class="btn btn-dark" href="/" >Voltar</a>
+        </div>
+
+    </div>
+
+</body>
+
+<foot>
+    <%- include("../partials/footer.ejs") %>
+</foot>
+
+
+</html>

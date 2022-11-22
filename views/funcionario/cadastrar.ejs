@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar funcionario</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+
+    <div class="container">
+
+        <p style="font-size:40px;"> Cadastrar </p>
+
+        <form action= "/funcionario" method="post">
+
+            <input type="hidden" name="id" value="<%= funcionario.id %>">
+
+            <div <%= escondido %> class="mb-3">
+                <label class="form-label">Código</label>
+                <input required type="text" value="<%= funcionario.codigo %>" required class="form-control" name="codigo">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input type="text" value="<%= funcionario.nome %>" required class="form-control" name="nome">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Idade</label>
+                <input type="text" value="<%= funcionario.idade %>" required class="form-control" name="idade">
+            </div>
+
+            <button type="submit" class="btn btn-success" >Salvar</button>
+            <a class="btn btn-dark" href="/">Voltar</a>
+        </form>
+
+    </div>
+
+</body>
+
+<foot>
+    <%- include("../partials/footer.ejs") %>
+</foot>
+
+
+</html>

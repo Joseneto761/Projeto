@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionario</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+
+    <div class="container">
+
+        <p style="font-size:40px;"> Detalhes </p>
+
+        <div> <b> Código: </b> <%= resultado.codigo %> </div>
+        <div> <b> Nome: </b> <%= resultado.nome %> </div>
+        <div> <b> Idade: </b> <%= resultado.idade %> </div>
+
+        </br><a class="btn btn-dark" href="/funcionario" >Voltar</a>
+
+    </div>
+    
+</body>
+
+<foot>
+    <%- include("../partials/footer.ejs") %>
+</foot>
+
+</html>
