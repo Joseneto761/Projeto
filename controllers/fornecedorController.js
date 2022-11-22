@@ -85,7 +85,7 @@ class FornecedorController{
         const resultado = await FornecedorModel.findOne({email: fornecedor.email});
         if (resultado){
             if (bcrypt.compareSync(fornecedor.senha, resultado.senha)){
-                res.send("Login efetuado com sucesso!")
+                res.redirect("/");
             } else{
                 res.send("Dados incorretos! Tente novamente.");
             }
